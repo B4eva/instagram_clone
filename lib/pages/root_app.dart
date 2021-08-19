@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_two/pages/home_page.dart';
+import 'package:instagram_clone_two/pages/search_page.dart';
 import 'package:instagram_clone_two/theme/colors.dart';
 
 class RootApp extends StatefulWidget {
@@ -25,13 +26,7 @@ class _RootAppState extends State<RootApp> {
   Widget? getBody() {
     List<Widget> pages = [
       HomePage(),
-      Center(
-        child: Text(
-          "Search",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: white, fontSize: 20),
-        ),
-      ),
+      Searchpage(),
       Center(
         child: Text(
           "Upload",

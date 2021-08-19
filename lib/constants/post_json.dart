@@ -1,7 +1,7 @@
 List posts = [
   {
     "id": 1,
-    "name": "panhchaneath_ung",
+    "name": "Angelina Tanze",
     "profileImg":
         "https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "postImg":
@@ -14,7 +14,7 @@ List posts = [
   },
   {
     "id": 2,
-    "name": "whereavygoes",
+    "name": "Queen Favour",
     "profileImg":
         "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2lybHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "postImg":
@@ -28,7 +28,7 @@ List posts = [
   },
   {
     "id": 3,
-    "name": "allef_vinicius",
+    "name": "Samira Nj",
     "profileImg":
         "https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     "postImg":
@@ -36,12 +36,12 @@ List posts = [
     "caption": " It is a good to day",
     "isLoved": false,
     "commentCount": "60",
-    "likedBy": "babysweetiepie",
+    "likedBy": "Tebe brian",
     "timeAgo": "3 day ago"
   },
   {
     "id": 4,
-    "name": "babysweetiepie",
+    "name": "Aya Yvette",
     "profileImg":
         "https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Z2lybHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     "postImg":
@@ -50,7 +50,7 @@ List posts = [
         "I love how a 6-year-old kid took better photos than many of my friends out there 😂",
     "isLoved": false,
     "commentCount": "70",
-    "likedBy": "sonitakhoun",
+    "likedBy": "Belinda",
     "timeAgo": "3 day ago"
   }
 ];

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram_clone_two/constants/post_json.dart';
 import 'package:instagram_clone_two/constants/story_json.dart';
 import 'package:instagram_clone_two/theme/colors.dart';
+import 'package:instagram_clone_two/widgets/post_item.dart';
+import 'package:instagram_clone_two/widgets/story_item.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,55 +21,85 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getBody() {
-    return Column(children: <Widget>[
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-            children: List.generate(stories.length, (index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 20, bottom: 10),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  height: 68,
-                  width: 68,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: KStoryBorderColor)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: Container(
+    return SingleChildScrollView(
+      child: Column(children: <Widget>[
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 15, bottom: 10),
+                child: Column(
+                  children: [
+                    Container(
                       width: 65,
                       height: 65,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: black, width: 2),
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  stories[index]['img'].toString()),
-                              fit: BoxFit.cover)),
+                      child: Stack(
+                        children: <Widget>[
+                          Container(
+                            width: 65,
+                            height: 65,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: NetworkImage(profile),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                                  height: 19,
+                                  width: 19,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle, color: white),
+                                  child: Icon(
+                                    Icons.add_circle,
+                                    size: 19,
+                                    color: KButtonFollowColor,
+                                  )))
+                        ],
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    SizedBox(
+                      width: 70,
+                      child: Text(
+                        name,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: white),
+                      ),
+                    )
+                  ],
                 ),
-                SizedBox(
-                  height: 8,
-                ),
-                SizedBox(
-                  width: 70,
-                  child: Text(
-                    stories[index]['name'],
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )
-              ],
-            ),
-          );
-        })),
-      ),
-    ]);
+              ),
+              Row(
+                  children: List.generate(stories.length, (index) {
+                return storyItem(index);
+              })),
+            ],
+          ),
+        ),
+        Divider(
+          color: white.withOpacity(0.3),
+        ),
+        Column(
+          children: List.generate(posts.length, (index) {
+            return PostItem(
+              postImg: posts[index]['postImg'],
+              profileImg: posts[index]['profileImg'],
+              name: posts[index]['name'],
+              caption: posts[index]['caption'],
+              isLoved: posts[index]['isLoved'],
+              viewCount: posts[index]['commentCount'],
+              likedBy: posts[index]['likedBy'],
+              dayAgo: posts[index]['timeAgo'],
+            );
+          }),
+        )
+      ]),
+    );
   }
 }
